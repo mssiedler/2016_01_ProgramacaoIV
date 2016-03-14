@@ -32,6 +32,7 @@
               rel="stylesheet">
         <link rel="stylesheet" href="../mdl/material.min.css">
         <link rel="stylesheet" href="../mdl/styles.css">
+        <link rel="stylesheet" href="../estilo.css">
         
        
     </head>

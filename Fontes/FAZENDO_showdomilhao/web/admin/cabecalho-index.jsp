@@ -32,7 +32,6 @@
               rel="stylesheet">
         <link rel="stylesheet" href="mdl/material.min.css">
         <link rel="stylesheet" href="mdl/styles.css">
-        <link rel="stylesheet" href="mdl/formulario.css">
        
     </head>
     
@@ -55,3 +54,5 @@
       </header>
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="overview">
+<script src="mdl/material.min.js"></script>
+<script src="mdl/jquery-2.1.4.min.js"></script>

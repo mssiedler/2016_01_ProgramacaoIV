@@ -1,4 +1,13 @@
+<%@page import="java.util.List"%>
+<%@page import="modelo.Categoria"%>
+<%@page import="dao.CategoriaDAO"%>
 <%@include file="../cabecalho.jsp"%>
+
+<%
+  CategoriaDAO dao = new CategoriaDAO();
+  List<Categoria> lista = dao.listar();
+  
+%>
 <!-- gambiarra pra alinhar o botão a esquerda-->
 <style>
     .direita
@@ -31,15 +40,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <%
+                    for (Categoria item : lista) {
+            
+        
+                    %>
                     <tr>
-                        <td>25</td>
-                        <td>Matemática</td>
+                        <td><%=item.getId()%></td>
+                        <td><%=item.getNome()%></td>
                         <td>
                             <!-- 
                                 Atualizar 
                             -->
                             <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp">update</a></i>
+                                <i class="material-icons"><a href="upd.jsp?id=<%=item.getId()%>">update</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttupd">
                                 Atualizar
@@ -48,7 +62,7 @@
                                 Excluir 
                             -->
                             <div id="ttdel" class="icon material-icons">
-                                <i class="material-icons"><a href="del-ok.jsp">delete</a></i>
+                                <i class="material-icons"><a href="del-ok.jsp?id=<%=item.getId()%>">delete</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttdel">
                                 Excluir
@@ -57,58 +71,9 @@
                         </td>
                 
                     </tr>
-                    <tr>
-                        <td>32</td>
-                        <td>Física</td>
-                        <td>
-                            <!-- 
-                                Atualizar 
-                            -->
-                            <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp">update</a></i>
-                            </div>
-                            <div class="mdl-tooltip" for="ttupd">
-                                Atualizar
-                            </div>
-                            <!-- 
-                                Excluir 
-                            -->
-                            <div id="ttdel" class="icon material-icons">
-                                <i class="material-icons"><a href="del-ok.jsp">delete</a></i>
-                            </div>
-                            <div class="mdl-tooltip" for="ttdel">
-                                Excluir
-                            </div>
-                            
-                        </td>
-                
-                    </tr>
-                    <tr>
-                        <td>29</td>
-                        <td>Programação</td>
-                       <td>
-                            <!-- 
-                                Atualizar 
-                            -->
-                            <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp">update</a></i>
-                            </div>
-                            <div class="mdl-tooltip" for="ttupd">
-                                Atualizar
-                            </div>
-                            <!-- 
-                                Excluir 
-                            -->
-                            <div id="ttdel" class="icon material-icons">
-                                <i class="material-icons"><a href="del-ok.jsp">delete</a></i>
-                            </div>
-                            <div class="mdl-tooltip" for="ttdel">
-                                Excluir
-                            </div>
-                            
-                        </td>
-                
-                    </tr>
+                    <%
+                    }
+                    %>
                 </tbody>
             </table>   
         </div>

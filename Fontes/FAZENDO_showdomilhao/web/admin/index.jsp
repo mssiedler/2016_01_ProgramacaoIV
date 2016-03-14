@@ -11,6 +11,17 @@
     </div>
 
 </section>
+<ul class="bxslider">
+  <li><img src="http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg" title="Funky roots" /></li>
+  <li><img src="http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg" title="The long and winding road" /></li>
+  <li><img src="http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg" title="Happy trees" /></li>
+</ul>
 
+<script>
+    $('.bxslider').bxSlider({
+  mode: 'fade',
+  captions: true
+});
+</script>
 
 <%@include file="rodape-index.jsp"%>

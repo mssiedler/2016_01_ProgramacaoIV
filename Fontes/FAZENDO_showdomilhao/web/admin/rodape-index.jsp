@@ -16,9 +16,7 @@
 </footer>
 </main>
 </div>
-<script src="mdl/material.min.js"></script>
-<script src="mdl/jquery-2.1.4.min.js"></script>
-<script src="mdl/formulario.js"></script>
+
 </body>
 </html>
 

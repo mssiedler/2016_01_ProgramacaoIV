@@ -1,0 +1,17 @@
+SMAP
+list_jsp.java
+JSP
+*S JSP
+*F
++ 0 cabecalho.jsp
+admin/jogador/../cabecalho.jsp
++ 1 list.jsp
+admin/jogador/list.jsp
++ 2 rodape.jsp
+admin/jogador/../rodape.jsp
+*L
+1,58:50
+1#1,71:107
+1#2,26:177
+71#1,2:202
+*E
