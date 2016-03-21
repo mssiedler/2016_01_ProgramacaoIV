@@ -1,0 +1,36 @@
+.cetralizar
+{
+    text-align: center;
+    margin:15px;
+}
+h1
+{
+    text-align: center;
+}
+h2
+{
+    text-align:justify;
+}
+.inicialformulario
+{
+    border:solid;
+}
+
+.usuario
+{
+    text-align: right;
+}
+
+.pergunta
+{
+    float: left;
+    width: 600px;
+}
+.painelUsuario
+{
+    padding-left: 10px;
+    
+}
+
+
+
