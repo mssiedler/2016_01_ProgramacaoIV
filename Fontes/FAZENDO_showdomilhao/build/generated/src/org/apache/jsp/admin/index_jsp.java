@@ -81,7 +81,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              rel=\"stylesheet\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"mdl/material.min.css\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"mdl/styles.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"mdl/formulario.css\">\n");
       out.write("       \n");
       out.write("    </head>\n");
       out.write("    \n");
@@ -104,6 +103,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
+      out.write("<script src=\"mdl/material.min.js\"></script>\n");
+      out.write("<script src=\"mdl/jquery-2.1.4.min.js\"></script>");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -117,7 +118,18 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("\n");
       out.write("</section>\n");
+      out.write("<ul class=\"bxslider\">\n");
+      out.write("  <li><img src=\"http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg\" title=\"Funky roots\" /></li>\n");
+      out.write("  <li><img src=\"http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg\" title=\"The long and winding road\" /></li>\n");
+      out.write("  <li><img src=\"http://www.equipesinapse.com.br/wp-content/uploads/2015/03/Society.jpg\" title=\"Happy trees\" /></li>\n");
+      out.write("</ul>\n");
       out.write("\n");
+      out.write("<script>\n");
+      out.write("    $('.bxslider').bxSlider({\n");
+      out.write("  mode: 'fade',\n");
+      out.write("  captions: true\n");
+      out.write("});\n");
+      out.write("</script>\n");
       out.write("\n");
       out.write(" \n");
       out.write("<section class=\"section--footer mdl-color--white mdl-grid\">\n");
@@ -137,9 +149,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</footer>\n");
       out.write("</main>\n");
       out.write("</div>\n");
-      out.write("<script src=\"mdl/material.min.js\"></script>\n");
-      out.write("<script src=\"mdl/jquery-2.1.4.min.js\"></script>\n");
-      out.write("<script src=\"mdl/formulario.js\"></script>\n");
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");

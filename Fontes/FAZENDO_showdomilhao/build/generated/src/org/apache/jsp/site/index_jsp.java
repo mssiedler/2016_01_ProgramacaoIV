@@ -49,11 +49,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Show do Milhão</title>\n");
-      out.write("        \n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/estilo.css\"/>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"centralizar\">\n");
-      out.write("            <img src=\"img/show.jpg\" alt=\"\"/>\n");
+      out.write("            <img src=\"img/show.png\" alt=\"\"/>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"inicialformulario\">\n");
       out.write("            <h4>Entrar</h4>\n");
@@ -68,7 +68,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <a href=\"jogo.jsp\">Pular login</a>\n");
       out.write("            </form>\n");
       out.write("            <div class=\"centralizar\">\n");
+      out.write("                <hr/>\n");
       out.write("                ou\n");
+      out.write("                <hr/>\n");
       out.write("            </div>\n");
       out.write("            <h4>Cadastre-se</h4>\n");
       out.write("            \n");

@@ -43,6 +43,9 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
           <h3>Área Administrativa</h3>
         </div>
+          <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            <p>Admin - <a href="../login.jsp?sair=OK">Sair</a></p>
+        </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark">

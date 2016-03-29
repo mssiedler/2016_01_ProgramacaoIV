@@ -1,4 +1,14 @@
 <%@include file="../cabecalho.jsp"%>
+<%
+String nome = request.getParameter("txtNome");
+String senha = request.getParameter("txtSenha");
+
+
+
+%>
+
+
+
 
 
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">

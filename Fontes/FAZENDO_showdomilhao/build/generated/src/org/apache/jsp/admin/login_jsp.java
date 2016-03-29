@@ -1,10 +1,10 @@
-package org.apache.jsp.admin.jogador;
+package org.apache.jsp.admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class add_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -12,9 +12,8 @@ public final class add_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/admin/jogador/../cabecalho.jsp");
-    _jspx_dependants.add("/admin/jogador/../rodape.jsp");
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/admin/rodape-index.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -48,13 +47,46 @@ public final class add_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
 
-//testar se ele está logado
-if(session.getAttribute("usuarioAdmin") == null)
+    
+ //VERIFICAR SE VEIO REQUISIÇÃO PARA   
+ //SAIR DO SISTEMA
+ if(request.getParameter("sair")!=null)
+ {
+     //atribui valor nulo para a sessão do usuário
+     session.setAttribute("usuarioAdmin", 
+             null);
+ }
+    
+//verifica se teve uma tentativa de login
+//considero tentativa de login se foi enviado 
+// o login E a senha
+String msg = ""; 
+if(request.getParameter("txtLogin")!=null && 
+        request.getParameter("txtSenha")!=null)
 {
-    response.sendRedirect("../login.jsp");
+    msg = "Tentou fazer o login";
+    String login = request.getParameter("txtLogin").toString();
+    String senha = request.getParameter("txtSenha").toString();
+    if(login.equals("Admin") && senha.equals("Admin") )
+    {
+        //Crio a Sessão do usuário Admin
+        session.setAttribute("usuarioAdmin", login);
+        //redirecionar para a página inicial
+        response.sendRedirect("index.jsp");
+        
+    }
+    else
+    {
+        msg = "Errou";
+    }
 }
+    
+    
 
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!doctype html>\n");
@@ -69,13 +101,13 @@ if(session.getAttribute("usuarioAdmin") == null)
       out.write("\n");
       out.write("        <!-- Add to homescreen for Chrome on Android -->\n");
       out.write("        <meta name=\"mobile-web-app-capable\" content=\"yes\">\n");
-      out.write("        <link rel=\"icon\" sizes=\"192x192\" href=\"../images/touch/chrome-touch-icon-192x192.png\">\n");
+      out.write("        <link rel=\"icon\" sizes=\"192x192\" href=\"images/touch/chrome-touch-icon-192x192.png\">\n");
       out.write("\n");
       out.write("        <!-- Add to homescreen for Safari on iOS -->\n");
       out.write("        <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n");
       out.write("        <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n");
       out.write("        <meta name=\"apple-mobile-web-app-title\" content=\"Material Design Lite\">\n");
-      out.write("        <link rel=\"apple-touch-icon-precomposed\" href=\"../apple-touch-icon-precomposed.png\">\n");
+      out.write("        <link rel=\"apple-touch-icon-precomposed\" href=\"apple-touch-icon-precomposed.png\">\n");
       out.write("\n");
       out.write("        <!-- Tile icon for Win8 (144x144 + tile color) -->\n");
       out.write("        <meta name=\"msapplication-TileImage\" content=\"images/touch/ms-touch-icon-144x144-precomposed.png\">\n");
@@ -83,16 +115,14 @@ if(session.getAttribute("usuarioAdmin") == null)
       out.write("\n");
       out.write("        <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->\n");
       out.write("        <!--\n");
-      out.write("        <link rel=\"canonical\" href=\"../http://www.example.com/\">\n");
+      out.write("        <link rel=\"canonical\" href=\"http://www.example.com/\">\n");
       out.write("        -->\n");
       out.write("\n");
       out.write("        <link href=\"https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en\" rel=\"stylesheet\">\n");
       out.write("        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n");
       out.write("              rel=\"stylesheet\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"../mdl/material.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"../mdl/styles.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"../estilo.css\">\n");
-      out.write("        \n");
+      out.write("        <link rel=\"stylesheet\" href=\"mdl/material.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"mdl/styles.css\">\n");
       out.write("       \n");
       out.write("    </head>\n");
       out.write("    \n");
@@ -106,60 +136,46 @@ if(session.getAttribute("usuarioAdmin") == null)
       out.write("        </div>\n");
       out.write("        <div class=\"mdl-layout--large-screen-only mdl-layout__header-row\">\n");
       out.write("        </div>\n");
-      out.write("        <div class=\" mdl-js-ripple-effect mdl-color--primary-dark\">\n");
-      out.write("          <a href=\"../index.jsp\" class=\"mdl-layout__tab\">Inicial</a>\n");
-      out.write("          <a href=\"../categoria/list.jsp\" class=\"mdl-layout__tab\">Categoria</a>\n");
-      out.write("          <a href=\"../jogador/list.jsp\" class=\"mdl-layout__tab\">Jogador</a>\n");
-      out.write("          \n");
-      out.write("        </div>\n");
+      out.write("        \n");
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
+      out.write("<script src=\"mdl/material.min.js\"></script>\n");
+      out.write("<script src=\"mdl/jquery-2.1.4.min.js\"></script>\n");
       out.write("\n");
       out.write("\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Jogador - Cadastrar</h4>\n");
-      out.write("            <form action=\"add-ok.jsp\" method=\"post\">\n");
-      out.write("                <!-- \n");
-      out.write("                    primeira div -- área que ocupará o campo de formulário\n");
-      out.write("                    segunda div -- campo de texto e label \n");
-      out.write("                -->\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtLogin\" name=\"txtLogin\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtLogin\">Login</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtSenha\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtSenha\">Senha</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"email\" required  id=\"txtEmail\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtEmail\">Email</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                \n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtFoto\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtFoto\">Foto</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                \n");
-      out.write("                <div class=\"mdl-cell--12-col\">\n");
+      out.write("            <h4>Gerenciamento do Sistema</h4>\n");
+      out.write("            <div>\n");
+      out.write("                ");
+      out.print(msg);
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("            <form action=\"login.jsp\" method=\"post\">\n");
+      out.write("                <div class=\"divformulario\"> \n");
+      out.write("                    <div class=\"mdl-cell--12-col\">\n");
+      out.write("                        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                            <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtLogin\" name=\"txtLogin\" />\n");
+      out.write("                            <label class=\"mdl-textfield__label\" for=\"txtNome\">Login</label>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>    \n");
+      out.write("                    <div class=\"mdl-cell--12-col\">\n");
       out.write("                    \n");
-      out.write("                    <button type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                    <i class=\"material-icons\">save</i></button>\n");
-      out.write("                    <button type=\"reset\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                    <i class=\"material-icons\">clear</i></button>\n");
-      out.write("                    \n");
-      out.write("                    \n");
+      out.write("                        <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                            <input class=\"mdl-textfield__input\" type=\"password\" required  id=\"txtSenha\" name=\"txtSenha\" />\n");
+      out.write("                            <label class=\"mdl-textfield__label\" for=\"txtSenha\">Senha</label>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div>\n");
+      out.write("\n");
+      out.write("                       <button type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">\n");
+      out.write("                            Entrar\n");
+      out.write("                        </button>\n");
+      out.write("                        \n");
+      out.write("                    </div>\n");
+      out.write("\n");
       out.write("                </div>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
@@ -186,16 +202,12 @@ if(session.getAttribute("usuarioAdmin") == null)
       out.write("</footer>\n");
       out.write("</main>\n");
       out.write("</div>\n");
-      out.write("<script src=\"../mdl/material.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/jquery-2.1.4.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/complemento.js\"></script>\n");
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

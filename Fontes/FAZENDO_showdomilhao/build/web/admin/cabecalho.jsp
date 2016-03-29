@@ -1,3 +1,12 @@
+<%
+//testar se ele está logado
+if(session.getAttribute("usuarioAdmin") == null)
+{
+    response.sendRedirect("../login.jsp");
+}
+
+%>
+
 <!doctype html>
 
 <html lang="pt-br">
@@ -44,9 +53,12 @@
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
           <h3>Área Administrativa</h3>
+          
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            <p>Admin - <a href="../login.jsp?sair=OK">Sair</a></p>
         </div>
+          
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="../index.jsp" class="mdl-layout__tab">Inicial</a>
           <a href="../categoria/list.jsp" class="mdl-layout__tab">Categoria</a>

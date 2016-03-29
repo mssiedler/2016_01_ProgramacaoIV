@@ -1,21 +1,15 @@
-package org.apache.jsp.admin.jogador;
+package org.apache.jsp.admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class add_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class cabecalho_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/admin/jogador/../cabecalho.jsp");
-    _jspx_dependants.add("/admin/jogador/../rodape.jsp");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -115,87 +109,6 @@ if(session.getAttribute("usuarioAdmin") == null)
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
-      out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
-      out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Jogador - Cadastrar</h4>\n");
-      out.write("            <form action=\"add-ok.jsp\" method=\"post\">\n");
-      out.write("                <!-- \n");
-      out.write("                    primeira div -- área que ocupará o campo de formulário\n");
-      out.write("                    segunda div -- campo de texto e label \n");
-      out.write("                -->\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtLogin\" name=\"txtLogin\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtLogin\">Login</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtSenha\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtSenha\">Senha</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"email\" required  id=\"txtEmail\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtEmail\">Email</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                \n");
-      out.write("                <div class=\"mdl-cell--12-col\"> \n");
-      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtFoto\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtFoto\">Foto</label>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                \n");
-      out.write("                <div class=\"mdl-cell--12-col\">\n");
-      out.write("                    \n");
-      out.write("                    <button type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                    <i class=\"material-icons\">save</i></button>\n");
-      out.write("                    <button type=\"reset\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                    <i class=\"material-icons\">clear</i></button>\n");
-      out.write("                    \n");
-      out.write("                    \n");
-      out.write("                </div>\n");
-      out.write("            </form>\n");
-      out.write("        </div>\n");
-      out.write("\n");
-      out.write("    </div>\n");
-      out.write("\n");
-      out.write("</section>\n");
-      out.write("\n");
-      out.write(" \n");
-      out.write("<section class=\"section--footer mdl-color--white mdl-grid\">\n");
-      out.write("\n");
-      out.write("</section>\n");
-      out.write("</div>\n");
-      out.write("<div class=\"mdl-layout__tab-panel\" id=\"features\">\n");
-      out.write("    <section class=\"section--center mdl-grid mdl-grid--no-spacing\">\n");
-      out.write("\n");
-      out.write("    </section>\n");
-      out.write("</div>\n");
-      out.write("\n");
-      out.write("<footer class=\"mdl-mega-footer\">\n");
-      out.write("    <div class=\"mdl-mega-footer--middle-section\">\n");
-      out.write("        bla bla blá\n");
-      out.write("    </div>\n");
-      out.write("</footer>\n");
-      out.write("</main>\n");
-      out.write("</div>\n");
-      out.write("<script src=\"../mdl/material.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/jquery-2.1.4.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/complemento.js\"></script>\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
