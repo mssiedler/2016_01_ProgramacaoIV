@@ -3,7 +3,13 @@
     Created on : 21/03/2016, 15:37:22
     Author     : marcelosiedler
 --%>
-
+<%@page import="modelo.Jogador"%>
+<%
+    //atribui o valor da sessão jogador ao objeto da página
+    Jogador jogador = (Jogador)session.getAttribute("jogador");
+    
+    
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +20,7 @@
     </head>
     <body>
         <div class="usuario">
-        Siedler
+        <%=jogador.getLogin()%>
         </div>
         <div class="centralizar">
             <img src="img/show.png" alt=""/>

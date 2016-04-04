@@ -3,6 +3,8 @@ package org.apache.jsp.site;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.Jogador;
+import dao.JogadorDAO;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +43,39 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+
+    //Tentativa de login
+    String mensagem = "";
+    if(request.getParameter("txtEntrarLogin")!=null &&
+            request.getParameter("txtEntrarSenha")!=null)
+    {
+        JogadorDAO dao = new JogadorDAO();
+        Jogador jogador; //variável com o usuário logado
+        String login = request.getParameter("txtEntrarLogin");
+        String senha = request.getParameter("txtEntrarSenha");
+        
+        jogador = dao.realizarLogin(login, senha);
+        if(jogador !=null)
+        {
+            //criar uma Sessão para o jogador
+            //vou pra tela inicial do jogo
+            session.setAttribute("jogador", jogador);
+            //vou para tela de jogo
+            response.sendRedirect("jogo.jsp");
+        }
+        else
+        {
+            mensagem = "Login errado";
+        }
+       
+    }
+    
+
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");

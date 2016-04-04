@@ -9,6 +9,7 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import modelo.Jogador;
 
 /**
@@ -37,6 +38,31 @@ public class JogadorDAO {
             
         }
         
+    }
+    //método realizarLogin
+    //recebe como paramentro o login ea senha
+    //retornando o objeto do jogador logado ou NULL(se não encontrou)
+    public Jogador realizarLogin(String login, String senha)
+    {
+        TypedQuery<Jogador> query = 
+                 em.createNamedQuery("Jogador.realizarLogin", 
+                         Jogador.class);
+         
+         //Seto os parâmetros
+        
+         query.setParameter("login", login);
+         query.setParameter("senha", senha);
+         Jogador jogador;
+         try {
+            jogador =  query.getSingleResult();    
+            
+        } catch (Exception e) {
+            jogador = null;
+        }
+ 
+        return jogador;
+            
+         
     }
 
     public List<Jogador> listar() throws Exception {

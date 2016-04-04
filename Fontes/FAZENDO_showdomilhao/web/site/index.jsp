@@ -3,6 +3,38 @@
     Created on : 21/03/2016, 15:33:51
     Author     : marcelosiedler
 --%>
+<%@page import="modelo.Jogador"%>
+<%@page import="dao.JogadorDAO"%>
+<%
+    //Tentativa de login
+    String mensagem = "";
+    if(request.getParameter("txtEntrarLogin")!=null &&
+            request.getParameter("txtEntrarSenha")!=null)
+    {
+        JogadorDAO dao = new JogadorDAO();
+        Jogador jogador; //variável com o usuário logado
+        String login = request.getParameter("txtEntrarLogin");
+        String senha = request.getParameter("txtEntrarSenha");
+        
+        jogador = dao.realizarLogin(login, senha);
+        if(jogador !=null)
+        {
+            //criar uma Sessão para o jogador
+            //vou pra tela inicial do jogo
+            session.setAttribute("jogador", jogador);
+            //vou para tela de jogo
+            response.sendRedirect("jogo.jsp");
+        }
+        else
+        {
+            mensagem = "Login errado";
+        }
+       
+    }
+    
+%>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
