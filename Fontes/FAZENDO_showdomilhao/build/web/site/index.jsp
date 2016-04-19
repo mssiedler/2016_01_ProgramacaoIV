@@ -58,7 +58,7 @@
                 <input type="text" name="txtEntrarSenha"
                        /><br/>
                 <input type="submit" value="Entrar" />
-                <a href="jogo.jsp">Pular login</a>
+                <a href="jogo.jsp?jogador=anonimo">Pular login</a>
             </form>
             <div class="centralizar">
                 <hr/>
