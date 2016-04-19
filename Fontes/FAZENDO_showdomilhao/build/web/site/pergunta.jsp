@@ -11,15 +11,30 @@
 
      */
 //Verificar se clicou em confirmar
-    Jogo jogo = new Jogo();
+    Jogo jogo;
+    //verificar se já tem jogo sendo jogado, senão inicia um novo jogo.
+    if(session.getAttribute("jogo")!=null)
+    {
+        jogo = (Jogo)session.getAttribute("jogo");
+    }
+    else
+    {
+        jogo= new Jogo();
+    }
+    
     if (request.getParameter("btnConfirmar") != null) {
-        out.print("Foi o confirmar");
+        String opcaomarcada = request.getParameter("rdoPergunta");
+        //verificar se acertou ou errou
+        if(!jogo.confirmar(opcaomarcada))
+        {
+            response.sendRedirect("fim.jsp");
+        }
     } else {
         if (request.getParameter("btnPular") != null) {
-            out.print("aqui é pular");
+           jogo.pular();
         } else {
             if (request.getParameter("btnParar") != null) {
-                out.print("aqui é parar");
+                response.sendRedirect("fim.jsp");
             } else {
                 //iniciar o jogo
                 jogo.iniciar();
@@ -47,13 +62,13 @@
             <div class="opcoes">
                 <form action="pergunta.jsp" method="post">
                     <input type="radio" value="A" name="rdoPergunta" />
-                    <%=%><br/>
+                    <%=pergunta.getA()%><br/>
                     <input type="radio" value="B" name="rdoPergunta" />
-                    Carlos Alberto de Nogrega<br/>
+                    <%=pergunta.getB()%><br/>
                     <input type="radio" value="C" name="rdoPergunta" />
-                    Gugu<br/>
+                    <%=pergunta.getC()%><br/>
                     <input type="radio" value="D" name="rdoPergunta" />
-                    Roberto Bolaños<br/>
+                    <%=pergunta.getD()%><br/>
                     <hr/>
                     <input type="submit" value="confirmar" name="btnConfirmar" />
                     <input type="submit" value="pular" name="btnPular"/>(3)

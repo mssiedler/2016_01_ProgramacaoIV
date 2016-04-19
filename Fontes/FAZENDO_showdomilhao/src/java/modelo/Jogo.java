@@ -92,8 +92,10 @@ public class Jogo {
         }
         else
         {
+            this.setPontuacao(this.getErro());
             return false;
         }
+        
     }
     
     public boolean pular()
@@ -101,6 +103,7 @@ public class Jogo {
         if(this.pulos!=0)
         {
             this.pulos--;
+            this.getPerguntas().remove(0);
             return true;
         }
         else
