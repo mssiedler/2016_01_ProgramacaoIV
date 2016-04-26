@@ -3,7 +3,16 @@
     Created on : 20/02/2016, 08:09:09
     Author     : marcelosiedler
 --%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.util.Date"%>
+<%@page import="dao.RankingDAO"%>
+<%
+    
+//Decimal para String    
+BigDecimal bd = new BigDecimal("320.02");
+        
 
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

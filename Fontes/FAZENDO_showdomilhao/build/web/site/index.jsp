@@ -17,6 +17,9 @@
         String senha = request.getParameter("txtEntrarSenha");
         
         jogador = dao.realizarLogin(login, senha);
+        
+        dao.fechaEmf();
+        
         if(jogador !=null)
         {
             //criar uma Sessão para o jogador

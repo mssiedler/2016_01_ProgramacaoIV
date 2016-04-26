@@ -9,24 +9,22 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import modelo.Categoria;
+import modelo.Ranking;
 
 /**
  *
  * @author marcelosiedler
  */
-public class CategoriaDAO {
+public class RankingDAO {
     EntityManager em;
     
-    public CategoriaDAO() throws Exception {
+    public RankingDAO() throws Exception {
         EntityManagerFactory emf;
         emf = Conexao.getConexao();
         em = emf.createEntityManager();
-        
-        
     }
     
-    public void incluir(Categoria obj) throws Exception {
+    public void incluir(Ranking obj) throws Exception {
         try {
             em.getTransaction().begin();
             em.persist(obj);
@@ -41,11 +39,14 @@ public class CategoriaDAO {
         
     }
 
-    public List<Categoria> listar() throws Exception {
-        return em.createNamedQuery("Categoria.findAll").getResultList();
+    public List<Ranking> listar() throws Exception {
+        return em.createNamedQuery("Ranking.findAll").getResultList();
     }
     
-    public void alterar(Categoria obj) throws Exception {
+    public List<Ranking> listarTop() throws Exception {
+        return em.createNamedQuery("Ranking.top").getResultList();
+    }
+    public void alterar(Ranking obj) throws Exception {
         
         try {
             em.getTransaction().begin();
@@ -55,11 +56,11 @@ public class CategoriaDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            //em.close();
+            em.close();
         }
     }
     
-    public void excluir(Categoria obj) throws Exception {
+    public void excluir(Ranking obj) throws Exception {
         
         try {
             em.getTransaction().begin();
@@ -68,12 +69,11 @@ public class CategoriaDAO {
         } catch (RuntimeException e) {
             em.getTransaction().rollback();
         } finally {
-            //em.close();
+            em.close();
         }
     }
 
     public void fechaEmf() {
-        em.close();
         Conexao.closeConexao();
     }
     
