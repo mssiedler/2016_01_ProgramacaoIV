@@ -5,10 +5,11 @@
  */
 package util;
 import java.io.File;
-import java.util.Date;
- import java.util.Iterator;
-import java.util.List;
- import javax.servlet.ServletContext;
+import java.util.ArrayList;
+ import java.util.Date;
+import java.util.Iterator;
+ import java.util.List;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -20,10 +21,16 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  */
 public class Upload {
    private String folderUpload;
+   private List<String> files;
+
+    public List<String> getFiles() {
+        return files;
+    }
    
    public Upload()
    {
        this.folderUpload = "upload";
+       files = new ArrayList<String>();
    }
 
     public String getFolderUpload() {
@@ -60,8 +67,11 @@ public class Upload {
                         if (!fileName.isEmpty()) {
                             boolean isInMemory = fi.isInMemory();
                             long sizeInBytes = fi.getSize();
-                            file = new File(filePath + "/" + new Date().getTime() + fileName);
+                            String name = new Date().getTime() + fileName;
+                            
+                            file = new File(filePath + "/" + name);
                             fi.write(file);
+                            files.add(name);
                         }
                     }
                 }

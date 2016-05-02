@@ -13,7 +13,10 @@
        up.setFolderUpload("arquivos");
        if(up.sendFiles(getServletContext(), request))
        {
-           out.print("ok");
+           for(String file: up.getFiles())
+           {
+               out.print(file);
+           }
        }
        else
        {
