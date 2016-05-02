@@ -44,7 +44,7 @@ public class RankingDAO {
     }
     
     public List<Ranking> listarTop() throws Exception {
-        return em.createNamedQuery("Ranking.top").getResultList();
+        return em.createNamedQuery("Ranking.top").setMaxResults(10).getResultList();
     }
     public void alterar(Ranking obj) throws Exception {
         

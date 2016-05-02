@@ -1,0 +1,16 @@
+SMAP
+testeRanking_jsp.java
+JSP
+*S JSP
+*F
++ 0 testeRanking.jsp
+testeRanking.jsp
+*L
+5,17:47
+22,4:65
+25,2:69
+27,3:71,3
+30,3:80
+34,3:85
+36,5:88
+*E
